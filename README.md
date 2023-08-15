@@ -10,7 +10,7 @@ Please note that the script is not fully automatic. <br />
 - Daemon upgrade
 - MariaDB SSL
 
-# How to install?
+# How to execute ?
 
 `git clone https://github.com/Romain452/auto_pterodactyl_install.git`
 
