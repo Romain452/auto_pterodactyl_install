@@ -6,17 +6,20 @@ echo "https://github.com/Romain452/auto_pterodactyl_install.git"
 
 echo " (Contact : r41411300@gmail.com si vous rencontrez un soucis). "
 
+sleep 5
+clear
 
+# Affiche le message de début
+echo "Début de l'installation des dépendances"
 
+sleep 5
+clear
 
 # Vérification des privilèges sudo
 if [[ $EUID -ne 0 ]]; then
    echo "Ce script doit être exécuté en tant qu'utilisateur root (sudo)." 
    exit 1
 fi
-
-# Affiche le message de début
-echo "Début de l'installation des dépendances"
 
 # Mise à jour des paquets
 apt update
@@ -26,8 +29,6 @@ apt install -y sudo bash curl wget git
 
 # Fin de l'installation
 echo "Installation des dépendances terminée"
-
-
 
 
 # Vérification des privilèges sudo
@@ -71,6 +72,21 @@ echo "Installation de Nginx terminée"
 
 
 
+# Database Configuration
+
+mysql -u root
+
+CREATE USER 'pterodactyl'@'127.0.0.1' IDENTIFIED BY 'pterodactyl';
+
+CREATE DATABASE panel;
+
+GRANT ALL PRIVILEGES ON *.* TO 'pterodactyl'@'127.0.0.1' WITH GRANT OPTION;
+
+exit
+
+
+
+
 # Affiche le message de début d'installation pterodactyl
 echo "Début de l'installation de pterodactyl"
 
@@ -96,3 +112,26 @@ cd /var/www/pterodactyl
 curl -Lo panel.tar.gz https://github.com/pterodactyl/panel/releases/latest/download/panel.tar.gz
 tar -xzvf panel.tar.gz
 chmod -R 755 storage/* bootstrap/cache/
+
+cp .env.example .env
+composer install --no-dev --optimize-autoloader
+
+
+# the first time and do not have any Pterodactyl Panel data in the database.
+php artisan key:generate --force
+
+php artisan p:environment:setup
+php artisan p:environment:database
+
+# custom SMTP server, select "smtp".
+php artisan p:environment:mail
+
+
+php artisan migrate --seed --force
+
+
+php artisan p:user:make
+
+
+# If using NGINX or Apache (not on CentOS)
+chown -R www-data:www-data /var/www/pterodactyl/*
