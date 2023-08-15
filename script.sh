@@ -77,8 +77,6 @@ echo "Installation de Nginx terminée"
 mysql -u root
 
 
-
-
 # Affiche le message de début d'installation pterodactyl
 echo "Début de l'installation de pterodactyl"
 
