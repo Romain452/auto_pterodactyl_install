@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "Bienvenue sur le script d'installation pterodactyl automatique"
+echo "Welcome to the automatic pterodactyl installation script"
 echo " "
 echo "https://github.com/Romain452/auto_pterodactyl_install.git"
 echo " "
@@ -10,14 +10,14 @@ sleep 5
 clear
 
 # Affiche le message de début
-echo "Début de l'installation des dépendances"
+echo "Start of the panel update"
 
 sleep 5
 clear
 
 # Vérification des privilèges sudo
 if [[ $EUID -ne 0 ]]; then
-   echo "Ce script doit être exécuté en tant qu'utilisateur root (sudo)." 
+   echo "This script must be executed as root (sudo) user." 
    exit 1
 fi
 

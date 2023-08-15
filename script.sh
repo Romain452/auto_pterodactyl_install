@@ -2,33 +2,33 @@
 
 clear
 
-echo "Bienvenue sur le script d'installation pterodactyl automatique"
+echo "Welcome to the automatic pterodactyl installation script"
 echo " "
 echo "https://github.com/Romain452/auto_pterodactyl_install.git"
 
-echo " (Contact : r41411300@gmail.com si vous rencontrez un soucis). "
+echo " (Contact : r41411300@gmail.com if you encounter a problem). "
 
 sleep 5
 clear
 
- read -p "Voulez-vous utiliser un nom de domaine pour le Pterodactyl ? (y/n): " ptero_domain_boolean
+ read -p "Do you want to use a domain name for Pterodactyl? (y/n): " ptero_domain_boolean
     if [[ "$ptero_domain_boolean" == "y" ]]; then
-      echo $e "${RED}Attention, le nom de domaine doit pointé vers l'adresse IP du serveur."
-      read -p "Entrez le nom de domaine: " ptero_domain
+      echo $e "${RED}Be careful, the domain name must point to the IP address of the server."
+      read -p "Enter the domain name: " ptero_domain
     else
-      read -p "Entrez l'adresse IP du serveur web (exemple : 10.0.10.12): " ptero_without_ssl_ip
-      read -p "Entrez le port à utiliser (exemple : 80): " ptero_without_ssl_port
+      read -p "Enter the IP address of the web server (example: 10.0.10.12): " ptero_without_ssl_ip
+      read -p "Enter the port to use (example: 80): " ptero_without_ssl_port
     fi
 
 # Affiche le message de début
-echo "Début de l'installation des dépendances"
+echo "Start installation of dependencies"
 
 sleep 5
 clear
 
 # Vérification des privilèges sudo
 if [[ $EUID -ne 0 ]]; then
-   echo "Ce script doit être exécuté en tant qu'utilisateur root (sudo)." 
+   echo "This script must be executed as root (sudo) user." 
    exit 1
 fi
 
@@ -44,12 +44,12 @@ echo "Installation des dépendances terminée"
 
 # Vérification des privilèges sudo
 if [[ $EUID -ne 0 ]]; then
-   echo "Ce script doit être exécuté en tant qu'utilisateur root (sudo)." 
+   echo "This script must be executed as root (sudo) user." 
    exit 1
 fi
 
 # Affiche le message de début
-echo "Début de l'installation des serveurs webs "
+echo "Start of web server installation "
 
 # Mise à jour des paquets
 apt update
@@ -79,7 +79,7 @@ systemctl enable mariadb
 systemctl status nginx
 
 # Fin de l'installation
-echo "Installation de Nginx terminée"
+echo "Nginx installation complete"
 
 
 
@@ -89,7 +89,7 @@ mysql -u root
 
 
 # Affiche le message de début d'installation pterodactyl
-echo "Début de l'installation de pterodactyl"
+echo "Start of pterodactyl installation"
 
 # Add "add-apt-repository" command
 apt -y install software-properties-common curl apt-transport-https ca-certificates gnupg
@@ -286,11 +286,11 @@ systemctl restart nginx
 
 
 
-echo -n "Voulez-vous installer wings ? (yes/no): "
+echo -n "Do you want to install wings? (yes/no): "
 read choix
 
 if [ "$choix" = "yes" ]; then
-    echo "installation de wings"
+    echo "wing installation"
     
     
     curl -sSL https://get.docker.com/ | CHANNEL=stable bash
@@ -305,5 +305,5 @@ if [ "$choix" = "yes" ]; then
 
 
 else
-    echo "Arrêt de l'exécution."
+    echo "Stop the execution."
 fi
