@@ -36,31 +36,3 @@ Please note that the script is not fully automatic. <br />
 
 `exit`
 
-
-egg Author mail : ton mail pour se connecter a pterodactyl
-
-Application url : http://yourIp/ or domain
-
->
-
->
-
-> database
-
->
-
->
-
-
-database host enter
-enter
-enter
-enter
-> your database password
-
-> mail
-> enter
-> enter
-
-user administrator : yes
-mail
