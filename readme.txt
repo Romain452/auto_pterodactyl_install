@@ -18,3 +18,32 @@ GRANT ALL PRIVILEGES ON *.* TO 'pterodactyl'@'127.0.0.1' WITH GRANT OPTION;
 exit
 
 > yes
+
+
+egg Author mail : ton mail pour se connecter a pterodactyl
+
+Application url : http://yourIp/ or domain
+
+>
+
+>
+
+> database
+
+>
+
+>
+
+
+database host enter
+enter
+enter
+enter
+> your database password
+
+> mail
+> enter
+> enter
+
+user administrator : yes
+mail
