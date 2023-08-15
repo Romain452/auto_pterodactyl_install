@@ -20,6 +20,11 @@ Please note that the script is not fully automatic. <br />
 
 `bash script.sh`
 
+# How to update?
+
+`cd /root/auto_pterodactyl_install`
+
+`bash update.sh`
 
 # mysql installation
 
