@@ -16,3 +16,5 @@ CREATE DATABASE panel;
 GRANT ALL PRIVILEGES ON *.* TO 'pterodactyl'@'127.0.0.1' WITH GRANT OPTION;
 
 exit
+
+> yes
