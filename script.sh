@@ -76,14 +76,6 @@ echo "Installation de Nginx terminée"
 
 mysql -u root
 
-CREATE USER 'pterodactyl'@'127.0.0.1' IDENTIFIED BY 'pterodactyl';
-
-CREATE DATABASE panel;
-
-GRANT ALL PRIVILEGES ON *.* TO 'pterodactyl'@'127.0.0.1' WITH GRANT OPTION;
-
-exit
-
 
 
 
