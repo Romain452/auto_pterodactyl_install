@@ -1,23 +1,35 @@
-git clone https://github.com/Romain452/auto_pterodactyl_install.git
+# Pterodactyl-AutoInstall
+Installing Pterodactyl in just a few minutes! <br />
+Please note that the script is not fully automatic. <br />
+<br />
 
-chmod +x ./auto_pterodactyl_install/script.sh
+# Features
+- Panel installation
+- Panel update
+- Daemon installation
+- Daemon upgrade
+- MariaDB SSL
 
-cd /root/auto_pterodactyl_install
+# How to install?
 
-bash script.sh
+`git clone https://github.com/Romain452/auto_pterodactyl_install.git`
+
+`chmod +x ./auto_pterodactyl_install/script.sh`
+
+`cd /root/auto_pterodactyl_install`
+
+`bash script.sh`
 
 
------------------------------
+# mysql installation
 
-CREATE USER 'pterodactyl'@'127.0.0.1' IDENTIFIED BY 'YOUR_PASSWORD';
+`CREATE USER 'pterodactyl'@'127.0.0.1' IDENTIFIED BY 'YOUR_PASSWORD';`
 
-CREATE DATABASE panel;
+`CREATE DATABASE panel;`
 
-GRANT ALL PRIVILEGES ON *.* TO 'pterodactyl'@'127.0.0.1' WITH GRANT OPTION;
+`GRANT ALL PRIVILEGES ON *.* TO 'pterodactyl'@'127.0.0.1' WITH GRANT OPTION;`
 
-exit
-
-> yes
+`exit`
 
 
 egg Author mail : ton mail pour se connecter a pterodactyl
