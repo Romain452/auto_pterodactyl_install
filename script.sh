@@ -85,7 +85,19 @@ echo "Nginx installation complete"
 
 # Database Configuration
 
-mysql -u root
+# Configuration MySQL
+MYSQL_USER="root"
+MYSQL_PASS="root"
+
+# Exécuter les commandes dans MySQL
+mysql -u "$MYSQL_USER" -p"$MYSQL_PASS" <<EOF
+CREATE USER 'pterodactyl'@'127.0.0.1' IDENTIFIED BY 'YOUR_PASSWORD';
+CREATE DATABASE panel;
+GRANT ALL PRIVILEGES ON *.* TO 'pterodactyl'@'127.0.0.1' WITH GRANT OPTION;
+exit
+EOF
+
+echo "Commandes MySQL exécutées avec succès."
 
 
 # Affiche le message de début d'installation pterodactyl
